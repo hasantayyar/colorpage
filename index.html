@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ <style>
+	body {
+		margin: 0;
+		font-family: Arial;
+	}
+	.tran {
+		-webkit-transition: all 0.2s ease-in-out;
+		-moz-transition: all 0.2s ease-in-out; 
+		-o-transition: all 0.2s ease-in-out;
+		transition: all 0.2s ease-in-out;
+	}
+	.shadow {
+		-webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 102, 0.2); -moz-box-shadow: 0px 1px 1px 0px rgba(0, 0, 102, 0.2);
+		box-shadow: 0px 1px 1px 0px rgba(0, 0, 102, 0.1);
+	}
+	.canvas {
+		width: 100vw;
+		padding-bottom: 100vh;
+		position: relative;
+	}
+	.place {
+		position: absolute;
+		width: 100vw;
+	}
+	.c1 {
+		padding-bottom: 41vh;
+	}
+	.c2 {
+		padding-bottom: 67vh;
+	}
+	.c3 {
+		padding-bottom: 85vh
+	}
+	.c4 {
+		padding-bottom: 100vh;
+	}
+	.place span {
+		position: absolute;text-align: center;
+		display: block;
+		bottom: 0;
+		color: white;
+		opacity: 0;
+		text-transform: uppercase;
+		background-color: rgba(0, 0, 0, 0.1);
+		padding: 3px 6px 3px 6px;
+		border-radius: 0px 3px 0px 0px;
+	}
+	.place:hover span {
+		opacity: 1;
+		letter-spacing: 1px
+	} 
+	.wait {
+		opacity: 0;padding-bottom: 50vh;
+	} 
+	</style>
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	</head>
+	<body> 	
+
+	<div class="item tran">
+		<div class = "canvas" >
+			<div class="place tran c4 wait"><span class="tran"></span></div >
+			<div class="place tran c3 wait"><span class="tran"></span></div >
+			<div class="place tran c2 wait"><span class="tran"></span></div >
+			<div class="place tran c1 wait"><span class="tran"></span></div >
+		</div>
+	</div >
+
+	<script>
+
+	function itemer(code) {
+		var c1 = code.substring(0, 6);
+		var c2 = code.substring(6, 12);
+		var c3 = code.substring(12, 18);
+		var c4 = code.substring(18, 24);
+		$('.c1').css('background-color', '#' + c1).find('span').text('#' + c1);
+		$('.c2').css('background-color', '#' + c2).find('span').text('#' + c2);
+		$('.c3').css('background-color', '#' + c3).find('span').text('#' + c3);
+		$('.c4').css('background-color', '#' + c4).find('span').text('#' + c4);
+	}
+
+	var data = [
+		'f9ed69f08a5db83b5e6a2c70', '2b2e4ae8454590374953354a', '222831393e4600adb5eeeeee', '48466d3d84a846cdcfabedd8', '56bfb538817af5f093fbd66f', 
+		'7a9eaf655989de88a5ffcebb', 'ff6575f1ad65fff6619be8f9', 'eb586fd8e9f04aa0d5454553', '33425b5baaec526ed0484cb0', '0e2e3b1666787db9b3d8d7c3', 
+		'e2eff1b6d5e165799b555273', 'f0f5f9c9d6df52616b1e2022', 'e4e4e441b3d361d2dc444444', '4ac6b74f5e7f965f8aff7070', 'eefca9b7e57683cc615a9e7c', 
+		'fbf8caa13f805e1043360827', '35394126282b5f85db90b8f8', '3841374066613bb87394ed88', '288fb41d556fefddb2fa360a', 'ff5335dfe0d43e92a3353940', 
+		'22576341d8bf2f89b33b50b2', '0c22330654710a91abffc045', '4ac3bea3dec9e6efbffaac64', '1a2634203e5fffcc00fee5b1', 'f75b5bc83b4c46265c794d9a', 
+		'a9eee6fefaecf9a1bc625772', '48829e51dacf9ef5cfe8ffb1', 'ff895dd5eeff78bbe61b435d', 'a6f2db7bcace678eb44f4e79', 'eb2a5dff6f41ffb44bffeb7d', 
+		'ffea54ffcb3cfeaa2bff5757', '26635212806153c0a2b5f7e6', '07588a6ac1b8bfe9dbe1f6f4', '1a2634203e5feec550f9e3a3', 'c1f88055c59d4f5aa87481cf', 
+		'114b5f1a936f88d498f3e9d2', '1f3a5241a1868cca6ed3f689', '563761a7425cf3825fffe26f', '47d0bddaec8bfffdd6ff5da2', 'd2e4f18facc0818d97484d51', 
+		'1d025101908174cc7ed2eba7', '231a31e42f45b42b3f8ab2ff', '2b1f31413d655fb9b0bef992', 'ffe390ff926bff4a4aa83c54', '5dacbd24527aa7bcb9e0ebeb', 
+		'1b4b4df3f66ff1d15fe8984a', '002c6ae45171f8a79bf8d99b', '314357456672e3b587c98c70', 'd5441c013c4d9dd5cbf3e5b1', '2d4059ea5455f07b3fffd460', 
+		'd7df710e5f76083d56081e3f', '343434055e6862a388b9d2d2', 'd1dbbd91aa9d3e606f193441', '5156612e9f8268c170d6ec8c', 'ff6464ffbd67f8fe855be7a9', 
+		'ff9234ffcd3cfafcb4b0db72', 'a62671db466bf96c48f5d773', 'ff94c7e760bf7e49ac343a69', '15274436759161d2b49dfdc7', 'bdd8f182a6cb3667a6214177', 
+		'a212321a183120615bdece9c', '3629994262c544aec293efed', '96c99c55829c4857913a316e', 'e9e6c9ca6144566683393e51', '73f7dd2cc4cb1972a42e3a87', 
+		'36413d4c657ef29696ffe2ad', 'd9dad7c24d2c3e4a611a2639', '062c800e6ac74fb9fcf6f5da', 'f35f5fcc435ff1ea6536a3eb', 'feed30ff6868924992504077', 
+		'd93153eb5033ff9d00ffd82c', '2b39643482aa6db3b5f9cc7b', 'f06868fab57aedf79880d6ff', '4ec9df63a1d03576a7344986', '303242394359f2be8dba6c65', 
+		'0000330066cc0099ffededed', '04879c0c3c78090030f30a49', '293462211a4cf33535a51c2d', '764f517fc5ca9fe6dccfffff', 'ee837454567adab784f8f3b6', 
+		'e0fffb29cdb5008698f39c9c', '83afa658727fe5e5e5d3a284', '304d4e4b75518a9e52f0d699', '0e153a3d5af122d1eee2f3f5', '001f3f0833580d63a5ffd717', 
+		'352d4d6d619269b0c192e0a9', '2e38371666787db9b3e1f6f4', 'e7272dae2a2ffec24af6e5e4', '438a7052ceba8affb4eaff81', 'f1f5bcfecb92f99a9ad1f6a4', 
+		'ffebbc5da7ae543d46292830', '118df00e2f56ff304fececda', 'ffd7be95977a3f4c48373640', '7400218d0033bd3246fdc8aa', '57385ca75265ec7263febe7e', 
+		'5d697a383838f66b34f2d639', 'e5f1e3a3cd9e52947135635b', 'ef8f6bd36239e2dd66a8b94e', '1b515e33827588b990abcd9e', '062925044a423a9188b8e1dd', 
+		'477d7f1f535764bd97c2ffbb', 'fffac0ffd79a73b9d79de6e8', 'ff304f002651775ada28c7fa', 'fba834fce850387adf50c4ed', 'fdfbdad3d0a8819f7f2d4659', 
+		'a8e0e15a96bb75448cc46caa', '0d7685084d6869c181ccf186', 'fdf3f3f8e7e7a070a1724060', '004182118df0fbffa3ff4b68', 'fadb3fecf7c5ea565627332d', 
+		'fda4cff46d6db3533df0d4a2', '2f3c4f506f86fbb040de703c', 'c1e8dac968685e4949866770', 'd0f66a36c186158a8c1e5287', '2f2342e42f45b42b3f7ca0e5', 
+		'f8aa27fac55bfff8b620655f', 'ffeed0f79f24e200497c064d', '561f55df3554902424541f1f', 'fffbe3ffa9a96a425c26271a', '80a3a2abcecfc4dce0daf4f5', 
+		'83cbfb377fd9edf68df1d851', 'ff6d3fb14b4b59405736162e', 'f3f2c9f0d58793af56336371', '3e1e68583c87e45a84ffacac', '693f27e4c144df7943c24b39', 
+		'51609174bec1adebbeeef3ad', 'e6a157c9753d973a3a5b252d', '5639a620236dfa4848ffe087', 'b3f7f67dd076f1f592f4cb81', 'f6538fb83f87f3e94ce8d124', 
+		'ff8a69f06161bb42727a3476', '6119198e2735deae4ffaf189', 'fff56cf1b1494366a9679ceb', 'ffea66f59159c750806b206a', 'ccf62c98c74e60a261357a5b', 
+		'51af5bb3e55efeed30ffcb3c', '80c0ce4672929adea2c2f69b', '3b939b2f818991f3fcc9fbff', '65e8923994d6354abf3d289b', 'eaf88779dc963bbbb3377aaf', 
+		'5f5dbd5e87b883cee0a4fbe3', 'aee1fc60abfb5170fd4636fc', '3b544183e85a2cb978107a8b', 'eca106d34f1e91300a5f1b00', '8ecccc50717b3a4042212121', 
+		'8cdadb815e94f4f49ef1d089', '442d7c6341b4f85acadafa8b', 'fadb3fecf7c551574827332d', 'fffbb7ffa84968848b4a2b13', '3498dbecf0f134495ef1c40f', 
+		'7a81eb504aa7253361599597', 'e4ba6ffae88eeb5e60a52f57', '523f79807be473cff0afffea', 'c2ffff8bdeffa888ff26466f', 'd19febfffd9df7d08ced8282', 
+		'483243684184cb73bbf3c2cb', '272e6effffc3ffc55ce95d35', 'fa8572b249686c37796c5fa7', 'd15260e95c63ff9d7bf2f089', 'f7deadcd443972b8966f7777', 
+		'364968fddf97e096646c4343', '96cd39f5ff65ffba47ff5b44', 'eadadad59dc5bf5caa4d3a4d', '8fc9ae548e87385b66bddaa5', 'e4f5e5a6dfde88a6e58d6ec8', 
+		'f1f4c6d6d0b8aaa6a4837d7d', '4531b1a836adf16896fff0a4', 'f6f6d947e4e05f81e4f67ff5', 'f83e4bf7e185cb9bba9d53c3', 'f1efe9beceb034857fb0a48a', 
+		'00a38879bd8fbeeb9fffff9d', 'f96d6db84d69a9d7f68fb1e9', 'bbe06c7cb855469b4c3c6e57', '80ffdb55e0a35b70f34850b9', '4b4c7aeb92fbc855bca03271', 
+		'd6ecfa6f3826b84a39f15c5c', 'efbfc6c228288a0f0f3c0303', 'ebedc89ab5c174698cc1867b', '7c6fff5ca9fffcff90ffde68', 'dffcad6ec189595cae424478', 
+		'ffe0a3e182379439396a2634', '335c49678c40bdbe36e5dd90', '35013f561050951556e9b5d2', '3d065ab51a6270d4b4ddddc7', '4a237761529fba69def3e96d', 
+		'9a60c1ac92fa96ebf048c3be', 'f5f0e8d3bd9aa28f70674f04', 'f9f3cfede7cfddbc89aa512f', 'f2676afbe087ad295962013c', 'b0e6ff7687db8f45a9582e48', 
+		'686ee25c3e84f35c6effa87b', '2c5460bbdc2f61b136cbe0e0', 'f7b449dde9f88293e35847ad', 'cc0500ef2f2aef832aefac2a', '3f3f3f95956ed2d86eefefef', 
+		'f3cba5975a5e45395325161b', '7fcbd7857ebbca9dd7facbd3', '3c1b1fb21e4be2bf81f6e1b5', '422b72266d983cb29ac4f080', 'f6ea8cf26d5bc03546492540'
+	];
+	var randi = Math.floor(Math.random() * data.length);
+	itemer(data[randi]);
+
+	$(function () {
+		$('.place').removeClass('wait');
+	});
+
+</script>
+</body>
+	</html>
